@@ -16,7 +16,6 @@ const socket = (socket) => {
   socket.on("typing-stoped", typingSocket.typingStopController);
   socket.on("join-room", roomController.joinRoom);
   socket.on("new-room-created", roomController.newRoomCreated);
-
   socket.on('files-upload',fileController.sendAndStoreFile)
 }
 

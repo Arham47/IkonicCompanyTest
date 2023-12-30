@@ -39,6 +39,7 @@ function ChatWindow() {
 
     setMessage("");
   };
+  
   const handleInput = (e) => {
     setMessage(e.target.value);
     setFormData({ ...formData, message: e.target.value,filePath:[] });
@@ -56,21 +57,7 @@ function ChatWindow() {
     fileRef.current.click();
   }
  
-  // const fileSelected = (e)=>{
 
-  //   const file = e.target.files[0];
-  //   if (!file) return;
-  //   const reader = new FileReader();
-  //   reader.readAsDataURL(file);
-  //   reader.onload = () => {
-  //     const data = reader.result;
-  //     socket.emit("upload", { data, roomId });
-  //     setChat((prev) => [
-  //       ...prev,
-  //       { message: reader.result, received: false, type: "image" },
-  //     ]);
-  //   }; 
-  // }
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();

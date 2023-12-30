@@ -30,7 +30,7 @@ export const createMessage = async (req, res) => {
   try {
     const { message, chatID, userID, userName } = req.body;
 
-    // Check if files were uploaded
+   
     console.log(req.files);
     const filePath = req?.files?.image.map(file => file.filename) || [];
 
@@ -52,7 +52,7 @@ export const createMessage = async (req, res) => {
 
 };
 
-// Controller to get all messages
+
 export const getAllMessages = async (req, res) => {
   const {chatID}=req.body
   try {
@@ -71,18 +71,18 @@ export const toggleMessageDelete = async (req, res) => {
   try {
     const { messageId } = req.params; 
 
-    // Find the message by ID
+
     const message = await MessageModel.findById(messageId);
 
-    // Check if the message exists
+   
     if (!message) {
       return res.status(404).json({ error: 'Message not found' });
     }
 
-    // Toggle the "delete" field
+
     message.delete = message.delete === 0 ? 1 : 0;
 
-    // Save the updated message
+   
     const updatedMessage = await message.save();
 
     res.status(200).json(updatedMessage);
@@ -106,7 +106,7 @@ export const getLatestChats = async (req, res) => {
     if (!latestChats || latestChats.length === 0) {
       return res.status(202).json({
         status: 202,
-        message: "No chats found for the specified workspace and admin",
+        message: "No chats found ",
         data:[]
       });
     }
